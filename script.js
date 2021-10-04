@@ -62,7 +62,7 @@ function getSquareByIndex(index) {
 
 document.addEventListener("keypress", function (event) {
     // Clear board
-    if (event.key == "c") {
+    if (event.key == "c" || event.key == "C") {
         console.log("c");
         clear();
     }
@@ -74,7 +74,7 @@ document.addEventListener("keypress", function (event) {
     }
 
     // Move left
-    if (event.key == "a") {
+    if (event.key == "a" || event.key == "A") {
         if (activeIndex % WIDTH === 0) {
             activeIndex += WIDTH;
         }
@@ -85,7 +85,7 @@ document.addEventListener("keypress", function (event) {
     }
 
     // Move right
-    if (event.key == "d") {
+    if (event.key == "d" || event.key == "D") {
         if ((activeIndex + 1) % WIDTH === 0) {
             activeIndex -= WIDTH;
         }
@@ -96,9 +96,9 @@ document.addEventListener("keypress", function (event) {
     }
 
     // Move up
-    if (event.key == "w") {
+    if (event.key == "w" || event.key == "W") {
         if (activeIndex < WIDTH) {
-            activeIndex *= 2 * HEIGHT + 1;
+            activeIndex += HEIGHT * WIDTH;
         }
 
         activeIndex -= WIDTH;
@@ -106,8 +106,8 @@ document.addEventListener("keypress", function (event) {
         setColor(getSquareByIndex(activeIndex));
     }
 
-    // Move down
-    if (event.key == "s") {
+    // FIXME: Move down
+    if (event.key == "s" || event.key == "S") {
         if (activeIndex > SQUARES - WIDTH) {
             activeIndex = (activeIndex % HEIGHT) - HEIGHT;
         }
