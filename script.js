@@ -1,6 +1,6 @@
 // Constants
 const colors = ['#e74c3c', '#8e44ad', '#3498db', '#e67e22', '#2ecc71'];
-const sequence = ["e74c3c", "e67e22", "fff44f", "2ecc71", "3498db", "8e44ad"];
+const sequence = ["#e74c3c", "#e67e22", "#fff44f", "#2ecc71", "#3498db", "#8e44ad"];
 const SQUARES = 500;
 const WIDTH = 20;
 const HEIGHT = SQUARES / WIDTH;
@@ -60,6 +60,29 @@ function getSquareByIndex(index) {
     const squares = document.getElementsByClassName("square");
 
     return squares[index];
+}
+
+function fillBoard(color) {
+    const squares = document.getElementsByClassName("square");
+
+    for (let square of squares) {
+        setColor(square, color);
+    }
+}
+
+// Sleep function from https://www.educative.io/edpresso/what-is-the-javascript-alternative-to-the-sleep-function
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// Async function using sleep method, modified for pixelboard
+async function rainbow() {
+    for (let color of sequence) {
+        console.log(color);
+        fillBoard(color);
+        await sleep(1000);
+    }
+    clear();
 }
 
 // Keypress event listener
@@ -129,4 +152,8 @@ document.addEventListener("keypress", function (event) {
     }
 
     // Cycle through all the colors 1 at a time
+    if (event.key == "r" || event.key == "R") {
+        console.log(event.key);
+        rainbow();
+    }
 });
