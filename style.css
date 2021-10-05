@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;300;400;500;700;800;900&display=swap');
+
 * {
   margin:0;
   padding:0;
   box-sizing: border-box;
+  font-family: "Work Sans", sans-serif;
 }
 
 body {
@@ -12,6 +15,13 @@ body {
   height: 100vh;
   overflow: hidden;
   margin: 0;
+}
+
+p {
+  font-size: large;
+  background-color: #3772ff;
+  padding: 5px 10px;
+  border-radius: 20px;
 }
 
 .container {
@@ -33,4 +43,14 @@ body {
 
 .square:hover {
   transition-duration: 0s;
+}
+
+.button-guide {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: white;
+  position: fixed;
+  bottom: 40px;
 }
