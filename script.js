@@ -142,7 +142,7 @@ document.addEventListener("keypress", function (event) {
     if (event.key == "s" || event.key == "S") {
         console.log(event.key);
 
-        if (activeIndex > SQUARES - WIDTH) {
+        if (activeIndex >= SQUARES - WIDTH) {
             activeIndex = (activeIndex % HEIGHT) - HEIGHT;
         }
 
